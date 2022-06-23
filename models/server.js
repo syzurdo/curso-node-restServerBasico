@@ -34,8 +34,8 @@ class server {
 
   //servidor
   listen() {
-    this.app.listen(process.env.port || 8080 , () => {
-      console.log("servidor en  puerto ", process.env.port );
+    this.app.listen(this.port, () => {
+      console.log("servidor en  puerto ", this.port);
     });
   }
 }
