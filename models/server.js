@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("express");
-require("dotenv").config();
+
 
 class server {
   constructor() {
@@ -34,7 +34,7 @@ class server {
 
   //servidor
   listen() {
-    this.app.listen(this.port ||8080 , () => {
+    this.app.listen(process.env.port || 8080 , () => {
       console.log("servidor en  puerto ", this.port);
     });
   }
