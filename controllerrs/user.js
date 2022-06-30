@@ -27,7 +27,19 @@ const usuariosGet = async (req, res) => {
   );
   
 };
-
+const usuariosGetId = async (req, res) => {
+id=req.params.id
+  await pool.query(
+    "select * from usuarios where idestado=1 and id=?",id, 
+    (error, resultado) => {
+      if (error) throw error;
+      res.status(201).json({
+        usuario: resultado,
+      });
+    }
+  );
+  
+};
 const usuariosEliminados = async (req, res) => {
 
   await pool.query(
@@ -148,4 +160,5 @@ module.exports = {
   usuariosPut,
   usuariosDelete,
   usuariosEliminados ,
+  usuariosGetId 
 };

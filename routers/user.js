@@ -5,7 +5,8 @@ const {
   usuariosPost,
   usuariosPut,
   usuariosDelete,
-  usuariosEliminados ,
+  usuariosEliminados, 
+  usuariosGetId,
 } = require("../controllerrs/user");
 const { esRolvalido, EmailExiste, UsuarioExiste, esEstadovalido } = require("../helpers/db-validator");
 
@@ -15,6 +16,11 @@ const router = Router();
 
 router.get("/", usuariosGet);
 
+//b[usquueda de usuarios por id
+router.get("/:id",[
+  check ('id','no es un id valido').custom( UsuarioExiste),
+  validarCampos
+], usuariosGetId);
 //usuarios eliminados
 router.get("/eli", usuariosEliminados);
 
