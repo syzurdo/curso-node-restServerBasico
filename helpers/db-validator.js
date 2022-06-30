@@ -50,7 +50,7 @@ const EmailExiste =async (email = "") => {
   const UsuarioExiste =async (id = "") => {
     return new Promise(async (resolve, reject) => {
       await pool.query(
-        "select * from usuarios where id = ?",
+        "select * from usuarios where id = ? ",
      id,
         (error, res) => {
 
